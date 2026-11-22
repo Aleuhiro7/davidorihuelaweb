@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>David Orihuela · Entrenador Personal Online</title>
+  <meta name="description" content="Entrenamiento personal online con David Orihuela. Planes de fuerza, pérdida de grasa y hábitos adaptados a ti, con seguimiento real.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a href="#top" class="logo">DAVID<span>ORIHUELA</span></a>
+      <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav__links">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#metodo">Método</a>
+        <a href="#planes">Planes</a>
+        <a href="#resultados">Resultados</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto" class="btn btn--small">Empieza ya</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <p class="eyebrow">Entrenador personal online</p>
+          <h1>Entrena con un plan hecho <em>para ti</em>, no para todos.</h1>
+          <p class="lead">Programas de fuerza, pérdida de grasa y hábitos diseñados a tu medida, con seguimiento semanal y ajustes reales. Estés donde estés.</p>
+          <div class="hero__cta">
+            <a href="#contacto" class="btn">Reserva tu valoración gratuita</a>
+            <a href="#planes" class="btn btn--ghost">Ver planes</a>
+          </div>
+          <ul class="hero__stats">
+            <li><strong>+150</strong><span>clientes</span></li>
+            <li><strong>8</strong><span>años de experiencia</span></li>
+            <li><strong>4,9★</strong><span>valoración media</span></li>
+          </ul>
+        </div>
+        <div class="hero__media" aria-hidden="true">
+          <div class="photo photo--hero">
+            <span>Tu foto aquí</span>
+          </div>
+          <div class="badge-float">
+            <strong>Valoración inicial</strong>
+            <span>Gratis · 20 min</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section class="section" id="sobre-mi">
+      <div class="container split">
+        <div class="photo photo--about"><span>Foto entrenando</span></div>
+        <div>
+          <p class="eyebrow">Sobre mí</p>
+          <h2>Hola, soy David.</h2>
+          <p>Llevo años ayudando a personas con poco tiempo a ponerse en forma sin dietas imposibles ni rutinas copiadas de internet. Mi enfoque es sencillo: entrenamiento basado en evidencia, adaptado a tu vida, y un acompañamiento cercano para que no abandones.</p>
+          <ul class="checks">
+            <li>Graduado en Ciencias de la Actividad Física y del Deporte</li>
+            <li>Especialista en fuerza y recomposición corporal</li>
+            <li>Experiencia con principiantes, deportistas y mayores de 40</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- MÉTODO -->
+    <section class="section section--dark" id="metodo">
+      <div class="container">
+        <p class="eyebrow">Cómo trabajamos</p>
+        <h2>Un método claro en 4 pasos</h2>
+        <ol class="steps">
+          <li>
+            <span class="steps__num">01</span>
+            <h3>Valoración</h3>
+            <p>Hablamos de tus objetivos, tu historial, lesiones, horarios y el material que tienes.</p>
+          </li>
+          <li>
+            <span class="steps__num">02</span>
+            <h3>Plan a medida</h3>
+            <p>Recibes tu programa en la app con vídeos explicativos de cada ejercicio.</p>
+          </li>
+          <li>
+            <span class="steps__num">03</span>
+            <h3>Seguimiento</h3>
+            <p>Revisiones semanales de progreso, técnica y sensaciones. Chat directo conmigo.</p>
+          </li>
+          <li>
+            <span class="steps__num">04</span>
+            <h3>Ajustes</h3>
+            <p>El plan evoluciona contigo: más carga, nuevos retos y hábitos que se quedan.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PLANES -->
+    <section class="section" id="planes">
+      <div class="container">
+        <p class="eyebrow">Planes</p>
+        <h2>Elige cómo quieres entrenar</h2>
+        <div class="plans">
+          <article class="plan">
+            <h3>Básico</h3>
+            <p class="plan__price"><strong>49€</strong>/mes</p>
+            <ul>
+              <li>Plan de entrenamiento personalizado</li>
+              <li>Vídeos de técnica</li>
+              <li>Revisión mensual</li>
+              <li>Soporte por email</li>
+            </ul>
+            <a href="#contacto" class="btn btn--ghost" data-plan="Básico">Elegir Básico</a>
+          </article>
+          <article class="plan plan--featured">
+            <span class="plan__tag">Más elegido</span>
+            <h3>Completo</h3>
+            <p class="plan__price"><strong>89€</strong>/mes</p>
+            <ul>
+              <li>Todo lo del plan Básico</li>
+              <li>Pautas de nutrición flexibles</li>
+              <li>Revisión semanal</li>
+              <li>Chat directo por WhatsApp</li>
+              <li>Corrección de técnica por vídeo</li>
+            </ul>
+            <a href="#contacto" class="btn" data-plan="Completo">Elegir Completo</a>
+          </article>
+          <article class="plan">
+            <h3>Premium</h3>
+            <p class="plan__price"><strong>149€</strong>/mes</p>
+            <ul>
+              <li>Todo lo del plan Completo</li>
+              <li>2 videollamadas al mes</li>
+              <li>Plan nutricional detallado</li>
+              <li>Respuesta prioritaria</li>
+            </ul>
+            <a href="#contacto" class="btn btn--ghost" data-plan="Premium">Elegir Premium</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTADOS -->
+    <section class="section section--alt" id="resultados">
+      <div class="container">
+        <p class="eyebrow">Resultados</p>
+        <h2>Lo que dicen mis clientes</h2>
+        <div class="testimonials">
+          <figure>
+            <blockquote>“En 4 meses he bajado 9 kg y, por primera vez, no lo he dejado a las dos semanas. El seguimiento marca la diferencia.”</blockquote>
+            <figcaption><strong>Laura M.</strong> · Pérdida de grasa</figcaption>
+          </figure>
+          <figure>
+            <blockquote>“Entreno en casa con unas mancuernas y he ganado más fuerza que en años de gimnasio por mi cuenta.”</blockquote>
+            <figcaption><strong>Carlos R.</strong> · Fuerza</figcaption>
+          </figure>
+          <figure>
+            <blockquote>“Me adapté a turnos de trabajo cambiantes y David siempre reajustaba el plan. Cercano y muy profesional.”</blockquote>
+            <figcaption><strong>Marta G.</strong> · Hábitos</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container container--narrow">
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2>Resolvemos tus dudas</h2>
+        <details>
+          <summary>¿Necesito ir a un gimnasio?</summary>
+          <p>No. Diseño el plan según el material que tengas: gimnasio, casa con mancuernas o solo tu peso corporal.</p>
+        </details>
+        <details>
+          <summary>¿Sirve si nunca he entrenado?</summary>
+          <p>Sí. Empezamos desde tu nivel actual y progresamos de forma segura, con vídeos y correcciones de técnica.</p>
+        </details>
+        <details>
+          <summary>¿Hay permanencia?</summary>
+          <p>No hay permanencia. Puedes cancelar cuando quieras avisando antes de la siguiente renovación.</p>
+        </details>
+        <details>
+          <summary>¿Cómo es la valoración gratuita?</summary>
+          <p>Una videollamada de unos 20 minutos para conocerte, entender tu objetivo y ver si encajamos. Sin compromiso.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="section section--dark" id="contacto">
+      <div class="container split split--top">
+        <div>
+          <p class="eyebrow">Contacto</p>
+          <h2>Da el primer paso hoy</h2>
+          <p>Rellena el formulario y te escribo en menos de 24 horas para agendar tu valoración gratuita.</p>
+          <ul class="contact-list">
+            <li><span>Email</span><a href="mailto:hola@davidorihuela.com">hola@davidorihuela.com</a></li>
+            <li><span>WhatsApp</span><a href="https://wa.me/34600000000" target="_blank" rel="noopener">+34 600 000 000</a></li>
+            <li><span>Instagram</span><a href="https://instagram.com/" target="_blank" rel="noopener">@davidorihuela</a></li>
+          </ul>
+        </div>
+        <form class="form" id="contact-form" novalidate>
+          <label>Nombre
+            <input type="text" name="nombre" required autocomplete="name">
+          </label>
+          <label>Email
+            <input type="email" name="email" required autocomplete="email">
+          </label>
+          <label>Objetivo principal
+            <select name="objetivo">
+              <option>Perder grasa</option>
+              <option>Ganar fuerza / músculo</option>
+              <option>Mejorar salud y hábitos</option>
+              <option>Rendimiento deportivo</option>
+            </select>
+          </label>
+          <label>Plan que te interesa
+            <select name="plan" id="plan-select">
+              <option>Aún no lo sé</option>
+              <option>Básico</option>
+              <option>Completo</option>
+              <option>Premium</option>
+            </select>
+          </label>
+          <label>Cuéntame un poco sobre ti
+            <textarea name="mensaje" rows="4"></textarea>
+          </label>
+          <button type="submit" class="btn btn--full">Enviar solicitud</button>
+          <p class="form__msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#top" class="logo">DAVID<span>ORIHUELA</span></a>
+      <p>© <span id="year"></span> David Orihuela · Entrenador personal online</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
