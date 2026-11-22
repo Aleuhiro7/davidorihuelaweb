@@ -7,8 +7,19 @@
   <meta name="description" content="Entrenamiento personal online con David Orihuela. Planes de fuerza, pérdida de grasa y hábitos adaptados a ti, con seguimiento real.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;500;600&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
   <meta name="theme-color" content="#0f1626">
+  <link rel="canonical" href="https://aleuhiro7.github.io/davidorihuelaweb/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="David Orihuela · Entrenador Personal Online">
+  <meta property="og:description" content="Planes de fuerza, pérdida de grasa y hábitos a tu medida, con seguimiento semanal. Valoración inicial gratuita.">
+  <meta property="og:image" content="icon-512.png">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -26,7 +37,6 @@
         <a href="#sobre-mi">Sobre mí</a>
         <a href="#metodo">Método</a>
         <a href="#planes">Planes</a>
-        <a href="#resultados">Resultados</a>
         <a href="#faq">FAQ</a>
         <a href="#contacto" class="btn btn--small">Empieza ya</a>
       </nav>
@@ -46,9 +56,9 @@
             <a href="#planes" class="btn btn--ghost">Ver planes</a>
           </div>
           <ul class="hero__stats">
-            <li><strong>+150</strong><span>clientes</span></li>
-            <li><strong>8</strong><span>años de experiencia</span></li>
-            <li><strong>4,9★</strong><span>valoración media</span></li>
+            <li><strong>100%</strong><span>online, desde donde estés</span></li>
+            <li><strong>1:1</strong><span>seguimiento personal</span></li>
+            <li><strong>&lt;24h</strong><span>tiempo de respuesta</span></li>
           </ul>
         </div>
         <div class="hero__media" aria-hidden="true">
@@ -115,22 +125,21 @@
       <div class="container">
         <p class="eyebrow">Planes</p>
         <h2>Elige cómo quieres entrenar</h2>
+        <p class="section__intro">Cada plan se adapta a ti. Te cuento precios y detalles en la valoración gratuita.</p>
         <div class="plans">
           <article class="plan">
             <h3>Básico</h3>
-            <p class="plan__price"><strong>49€</strong>/mes</p>
             <ul>
               <li>Plan de entrenamiento personalizado</li>
               <li>Vídeos de técnica</li>
               <li>Revisión mensual</li>
               <li>Soporte por email</li>
             </ul>
-            <a href="#contacto" class="btn btn--ghost" data-plan="Básico">Elegir Básico</a>
+            <a href="#contacto" class="btn btn--ghost" data-plan="Básico">Me interesa</a>
           </article>
           <article class="plan plan--featured">
-            <span class="plan__tag">Más elegido</span>
+            <span class="plan__tag">Recomendado</span>
             <h3>Completo</h3>
-            <p class="plan__price"><strong>89€</strong>/mes</p>
             <ul>
               <li>Todo lo del plan Básico</li>
               <li>Pautas de nutrición flexibles</li>
@@ -138,41 +147,18 @@
               <li>Chat directo por WhatsApp</li>
               <li>Corrección de técnica por vídeo</li>
             </ul>
-            <a href="#contacto" class="btn" data-plan="Completo">Elegir Completo</a>
+            <a href="#contacto" class="btn" data-plan="Completo">Me interesa</a>
           </article>
           <article class="plan">
             <h3>Premium</h3>
-            <p class="plan__price"><strong>149€</strong>/mes</p>
             <ul>
               <li>Todo lo del plan Completo</li>
               <li>2 videollamadas al mes</li>
               <li>Plan nutricional detallado</li>
               <li>Respuesta prioritaria</li>
             </ul>
-            <a href="#contacto" class="btn btn--ghost" data-plan="Premium">Elegir Premium</a>
+            <a href="#contacto" class="btn btn--ghost" data-plan="Premium">Me interesa</a>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- RESULTADOS -->
-    <section class="section section--alt" id="resultados">
-      <div class="container">
-        <p class="eyebrow">Resultados</p>
-        <h2>Lo que dicen mis clientes</h2>
-        <div class="testimonials">
-          <figure>
-            <blockquote>“En 4 meses he bajado 9 kg y, por primera vez, no lo he dejado a las dos semanas. El seguimiento marca la diferencia.”</blockquote>
-            <figcaption><strong>Laura M.</strong> · Pérdida de grasa</figcaption>
-          </figure>
-          <figure>
-            <blockquote>“Entreno en casa con unas mancuernas y he ganado más fuerza que en años de gimnasio por mi cuenta.”</blockquote>
-            <figcaption><strong>Carlos R.</strong> · Fuerza</figcaption>
-          </figure>
-          <figure>
-            <blockquote>“Me adapté a turnos de trabajo cambiantes y David siempre reajustaba el plan. Cercano y muy profesional.”</blockquote>
-            <figcaption><strong>Marta G.</strong> · Hábitos</figcaption>
-          </figure>
         </div>
       </div>
     </section>
@@ -250,13 +236,13 @@
   <footer class="footer">
     <div class="container footer__inner">
       <a href="#top" class="logo" aria-label="David Orihuela, inicio">
-        <svg class="logo__mark" viewBox="0 0 48 52" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b8cff"/><stop offset="1" stop-color="#3ee6b0"/></linearGradient></defs><path d="M24 3 44 14.5v23L24 49 4 37.5v-23Z" fill="#0f1626" stroke="url(#lg)" stroke-width="4" stroke-linejoin="round"/><text x="24" y="31.5" text-anchor="middle" font-family="Oswald, sans-serif" font-weight="700" font-size="16" fill="#fff">DO</text></svg>
+        <svg class="logo__mark" viewBox="0 0 48 52" aria-hidden="true"><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b8cff"/><stop offset="1" stop-color="#3ee6b0"/></linearGradient></defs><path d="M24 3 44 14.5v23L24 49 4 37.5v-23Z" fill="#0f1626" stroke="url(#lg2)" stroke-width="4" stroke-linejoin="round"/><text x="24" y="31.5" text-anchor="middle" font-family="Oswald, sans-serif" font-weight="700" font-size="16" fill="#fff">DO</text></svg>
         <span class="logo__text"><strong>DAVID ORIHUELA</strong><small>ENTRENADOR ONLINE</small></span>
       </a>
       <p>© <span id="year"></span> David Orihuela · Entrenador personal online</p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

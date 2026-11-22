@@ -26,7 +26,7 @@ document.querySelectorAll("[data-plan]").forEach((btn) => {
 });
 
 // Animación de aparición al hacer scroll
-const revealTargets = document.querySelectorAll(".section h2, .steps li, .plan, .testimonials figure, .split > *");
+const revealTargets = document.querySelectorAll(".section h2, .steps li, .plan, .split > *");
 if ("IntersectionObserver" in window) {
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
