@@ -72,7 +72,10 @@
 
           <a href="https://wa.me/34600000000" class="player" data-wa target="_blank" rel="noopener" aria-label="Reserva tu valoración gratuita por WhatsApp">
             <div class="player__screen">
-              <span class="player__tag mono">Tu foto aquí</span>
+              <picture class="player__img">
+                <source srcset="david.webp" type="image/webp">
+                <img src="david.jpg" alt="David Orihuela, entrenador personal" width="1004" height="690" fetchpriority="high">
+              </picture>
               <span class="player__big"><svg><use href="#tri"/></svg></span>
             </div>
             <div class="player__controls mono">
@@ -119,10 +122,7 @@
     <!-- SOBRE MÍ -->
     <section class="block block--panel" id="sobre-mi">
       <div class="wrap about">
-        <picture class="about__photo">
-          <source srcset="david.webp" type="image/webp">
-          <img src="david.jpg" alt="David Orihuela, entrenador personal" width="1100" height="1040" loading="lazy" decoding="async">
-        </picture>
+        <div class="about__photo"><span class="mono">Foto entrenando</span></div>
         <div>
           <p class="mono chapter"><span>02</span> Quién te entrena</p>
           <h2 class="title">Hola, soy David.</h2>
