@@ -86,7 +86,7 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
 .slide { flex: none; height: 100%; aspect-ratio: 1004 / 690; }
 .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
 @keyframes filmstrip { to { transform: translateX(calc(-50% - 3px)); } }
-.player { --loop: 22s; }
+.player { --loop: 14s; }
 .player__tag { position: absolute; left: 14px; top: 14px; color: var(--muted); border: 1px solid var(--line); padding: .25rem .55rem; border-radius: 6px; background: rgba(7,9,15,.6); }
 .player__big { position: absolute; right: 16px; bottom: 16px; width: 60px; height: 60px; backdrop-filter: blur(4px); border-radius: 50%; background: rgba(7,9,15,.55); border: 2px solid var(--text); display: grid; place-items: center; transition: background .2s, border-color .2s; }
 .player__big svg { width: 18px; height: 22px; margin-left: 4px; color: var(--text); }
