@@ -84,11 +84,11 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
 .player__screen { aspect-ratio: 16 / 11; position: relative; display: grid; place-items: center;
   background: radial-gradient(circle at 75% 80%, rgba(62,230,176,.16), transparent 55%), repeating-linear-gradient(135deg, #0f1522 0 14px, #111827 14px 28px); }
 .slides { position: absolute; inset: 0; overflow: hidden; }
-.slides__track { height: 100%; }
-.slide { display: block; height: 100%; }
-.slide img { width: 100%; height: 100%; object-fit: cover; display: block; animation: drift var(--loop) ease-in-out infinite alternate; }
-@keyframes drift { from { transform: scale(1.02) translateX(-1.5%); } to { transform: scale(1.12) translateX(1.5%); } }
-.player { --loop: 14s; }
+.slides__track { display: flex; gap: 6px; height: 100%; width: max-content; animation: filmstrip var(--loop) linear infinite; }
+.slide { flex: none; height: 100%; aspect-ratio: 530 / 1000; }
+.slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@keyframes filmstrip { to { transform: translateX(calc(-50% - 3px)); } }
+.player { --loop: 20s; }
 .player__tag { position: absolute; left: 14px; top: 14px; color: var(--muted); border: 1px solid var(--line); padding: .25rem .55rem; border-radius: 6px; background: rgba(7,9,15,.6); }
 .player__big { position: absolute; right: 16px; bottom: 16px; width: 60px; height: 60px; backdrop-filter: blur(4px); border-radius: 50%; background: rgba(7,9,15,.55); border: 2px solid var(--text); display: grid; place-items: center; transition: background .2s, border-color .2s; }
 .player__big svg { width: 18px; height: 22px; margin-left: 4px; color: var(--text); }
@@ -99,8 +99,14 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
 .player__track { flex: 1; display: flex; gap: 5px; }
 .player__track i { flex: 1; height: 3px; background: var(--line); border-radius: 3px; position: relative; overflow: hidden; }
 .player__track i::after { content: ""; position: absolute; inset: 0; background: var(--accent); transform: scaleX(0); transform-origin: left; }
-.player__track i::after { animation: bar1 var(--loop) linear infinite; }
-@keyframes bar1 { to { transform: scaleX(1); } }
+.player__track i:nth-child(1)::after { animation: bar1 var(--loop) linear infinite; }
+.player__track i:nth-child(2)::after { animation: bar2 var(--loop) linear infinite; }
+.player__track i:nth-child(3)::after { animation: bar3 var(--loop) linear infinite; }
+.player__track i:nth-child(4)::after { animation: bar4 var(--loop) linear infinite; }
+@keyframes bar1 { 25%, 100% { transform: scaleX(1); } }
+@keyframes bar2 { 0%, 25% { transform: scaleX(0); } 50%, 100% { transform: scaleX(1); } }
+@keyframes bar3 { 0%, 50% { transform: scaleX(0); } 75%, 100% { transform: scaleX(1); } }
+@keyframes bar4 { 0%, 75% { transform: scaleX(0); } 100% { transform: scaleX(1); } }
 .player__controls span:last-child { white-space: nowrap; }
 
 .counter { margin-top: clamp(2.5rem, 5vw, 3.5rem); color: var(--muted); padding-top: 1.25rem; border-top: 1px dashed var(--line); }
@@ -204,7 +210,7 @@ picture.about__photo { display: block; overflow: hidden; background: var(--panel
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .tape__track, .rec i, .playcta__circle::before, .slide img, .player__track i::after { animation: none; }
+  .tape__track, .rec i, .playcta__circle::before, .slides__track, .player__track i::after { animation: none; }
   .timeline__fill { transition: none; }
 }
 
