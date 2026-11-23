@@ -43,54 +43,33 @@ if ("IntersectionObserver" in window) {
   timeline.classList.add("visible");
 }
 
-// Formulario de contacto
-// Por ahora abre el cliente de correo con los datos rellenados.
-// Para recibir los mensajes sin email, conecta un servicio como Formspree:
-// cambia FORM_ENDPOINT por tu URL (p. ej. "https://formspree.io/f/xxxxxx").
-const FORM_ENDPOINT = "";
-const CONTACT_EMAIL = "hola@davidorihuela.com";
+// WhatsApp: cambia aquí tu número (con prefijo de país, sin + ni espacios)
+const WHATSAPP = "34600000000";
+const waLink = (text) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
 
+// Botones de valoración: abren WhatsApp con un mensaje ya escrito
+document.querySelectorAll("[data-wa]").forEach((a) => {
+  a.href = waLink("Hola David, me gustaría hacer la valoración gratuita.");
+});
+
+// Formulario de contacto: prepara el mensaje y lo abre en WhatsApp
 const form = document.getElementById("contact-form");
 const msg = form.querySelector(".form__msg");
 
-form.addEventListener("submit", async (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
   msg.className = "form__msg";
-  const fields = [form.nombre, form.email];
-  let valid = true;
-  fields.forEach((f) => {
-    const ok = f.value.trim() !== "" && f.checkValidity();
-    f.classList.toggle("invalid", !ok);
-    if (!ok) valid = false;
-  });
-  if (!valid) {
-    msg.textContent = "Revisa tu nombre y un email válido.";
+  const ok = form.nombre.value.trim() !== "";
+  form.nombre.classList.toggle("invalid", !ok);
+  if (!ok) {
+    msg.textContent = "Escribe tu nombre para continuar.";
     msg.classList.add("err");
     return;
   }
-
   const data = Object.fromEntries(new FormData(form));
-
-  if (FORM_ENDPOINT) {
-    try {
-      const res = await fetch(FORM_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (!res.ok) throw new Error();
-      form.reset();
-      msg.textContent = "¡Gracias! Te escribiré en menos de 24 horas.";
-      msg.classList.add("ok");
-    } catch {
-      msg.textContent = "No se pudo enviar. Escríbeme directamente por email o WhatsApp.";
-      msg.classList.add("err");
-    }
-    return;
-  }
-
-  const body = `Nombre: ${data.nombre}\nEmail: ${data.email}\nObjetivo: ${data.objetivo}\n\n${data.mensaje}`;
-  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Valoración gratuita - " + data.nombre)}&body=${encodeURIComponent(body)}`;
-  msg.textContent = "Abriendo tu correo para enviar la solicitud…";
+  let text = `Hola David, soy ${data.nombre.trim()}. Me gustaría hacer la valoración gratuita.\nObjetivo: ${data.objetivo}`;
+  if (data.mensaje.trim()) text += `\n\n${data.mensaje.trim()}`;
+  window.open(waLink(text), "_blank", "noopener");
+  msg.textContent = "Abriendo WhatsApp con tu mensaje…";
   msg.classList.add("ok");
 });
