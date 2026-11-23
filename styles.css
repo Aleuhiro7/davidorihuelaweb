@@ -67,7 +67,7 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
 .lead { font-size: clamp(1.1rem, 1.8vw, 1.35rem); color: var(--text); max-width: 30em; }
 .lead em { font-style: normal; color: var(--accent); }
 
-.playcta { display: inline-flex; align-items: center; gap: 1rem; margin-top: 2rem; text-decoration: none; }
+.playcta { display: inline-flex; align-items: center; gap: 1rem; margin-top: 1.75rem; text-decoration: none; }
 .playcta__circle { width: 68px; height: 68px; flex: none; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; position: relative; transition: transform .2s; }
 .playcta__circle::before { content: ""; position: absolute; inset: -8px; border-radius: 50%; border: 1px solid rgba(62,230,176,.45); animation: pulse 2.2s infinite; }
 .playcta__circle svg { width: 20px; height: 24px; margin-left: 4px; }
