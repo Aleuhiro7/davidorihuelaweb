@@ -1,24 +1,6 @@
 // Año del footer
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Menú móvil
-const nav = document.querySelector(".nav");
-const toggle = document.querySelector(".nav__toggle");
-const links = document.querySelector(".nav__links");
-
-toggle.addEventListener("click", () => {
-  const open = links.classList.toggle("open");
-  nav.classList.toggle("menu-open", open);
-  toggle.setAttribute("aria-expanded", String(open));
-});
-links.addEventListener("click", (e) => {
-  if (e.target.tagName === "A") {
-    links.classList.remove("open");
-    nav.classList.remove("menu-open");
-    toggle.setAttribute("aria-expanded", "false");
-  }
-});
-
 // Al elegir un plan, preseleccionarlo en el formulario
 const planSelect = document.getElementById("plan-select");
 document.querySelectorAll("[data-plan]").forEach((btn) => {
