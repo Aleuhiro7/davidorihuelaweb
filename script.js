@@ -1,12 +1,6 @@
 // Año del footer
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Al elegir un plan, preseleccionarlo en el formulario
-const planSelect = document.getElementById("plan-select");
-document.querySelectorAll("[data-plan]").forEach((btn) => {
-  btn.addEventListener("click", () => { planSelect.value = btn.dataset.plan; });
-});
-
 // Cronómetro: tiempo que el visitante lleva en la página
 const timers = document.querySelectorAll(".js-timer");
 const head = document.querySelector(".player__head");
@@ -31,7 +25,7 @@ addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimat
 onScroll();
 
 // Animación de aparición al hacer scroll
-const revealTargets = document.querySelectorAll(".statement, .title, .cols, .tagline, .about__photo, .spec, .pillars li, .band h2, .plan, .qa > div, .form");
+const revealTargets = document.querySelectorAll(".statement, .title, .cols, .tagline, .about__photo, .spec, .pillars li, .band h2, .offer__card, .qa > div, .form");
 const timeline = document.querySelector(".timeline");
 if ("IntersectionObserver" in window) {
   const tio = new IntersectionObserver(([e]) => { if (e.isIntersecting) { timeline.classList.add("visible"); tio.disconnect(); } }, { threshold: 0.6 });
@@ -95,7 +89,7 @@ form.addEventListener("submit", async (e) => {
     return;
   }
 
-  const body = `Nombre: ${data.nombre}\nEmail: ${data.email}\nObjetivo: ${data.objetivo}\nPlan: ${data.plan}\n\n${data.mensaje}`;
+  const body = `Nombre: ${data.nombre}\nEmail: ${data.email}\nObjetivo: ${data.objetivo}\n\n${data.mensaje}`;
   window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Valoración gratuita - " + data.nombre)}&body=${encodeURIComponent(body)}`;
   msg.textContent = "Abriendo tu correo para enviar la solicitud…";
   msg.classList.add("ok");
