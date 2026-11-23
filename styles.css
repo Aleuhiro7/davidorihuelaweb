@@ -77,6 +77,8 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
 @keyframes pulse { from { transform: scale(.9); opacity: 1; } to { transform: scale(1.35); opacity: 0; } }
 
 /* Foto con controles de vídeo */
+.media__note { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .7rem; font-size: .95rem; color: var(--text); margin-bottom: .9rem; }
+.media__note .mono { color: var(--accent-ink); background: var(--accent); padding: .1rem .45rem; border-radius: 4px; font-size: .68rem; }
 .player { display: block; text-decoration: none; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); background: var(--panel); transform: rotate(1.2deg); transition: transform .3s; }
 .player:hover { transform: rotate(0); }
 .player__screen { aspect-ratio: 16 / 11; position: relative; display: grid; place-items: center;
