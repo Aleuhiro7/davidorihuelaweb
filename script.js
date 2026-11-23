@@ -7,9 +7,35 @@ document.querySelectorAll("[data-plan]").forEach((btn) => {
   btn.addEventListener("click", () => { planSelect.value = btn.dataset.plan; });
 });
 
+// Cronómetro: tiempo que el visitante lleva en la página
+const timers = document.querySelectorAll(".js-timer");
+const head = document.querySelector(".player__head");
+const start = Date.now();
+const tick = () => {
+  const s = Math.floor((Date.now() - start) / 1000);
+  const txt = String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
+  timers.forEach((t) => { t.textContent = txt; });
+  if (head) head.style.width = Math.min(8 + s * 1.5, 100) + "%";
+};
+setInterval(tick, 1000);
+
+// Barra de progreso tipo reproductor según el scroll
+const fill = document.querySelector(".scrub__fill");
+let ticking = false;
+const onScroll = () => {
+  const max = document.documentElement.scrollHeight - innerHeight;
+  fill.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + "%";
+  ticking = false;
+};
+addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+onScroll();
+
 // Animación de aparición al hacer scroll
-const revealTargets = document.querySelectorAll(".section h2, .steps li, .plan, .split > *");
+const revealTargets = document.querySelectorAll(".statement, .title, .cols, .tagline, .about__photo, .spec, .pillars li, .band h2, .plan, .qa > div, .form");
+const timeline = document.querySelector(".timeline");
 if ("IntersectionObserver" in window) {
+  const tio = new IntersectionObserver(([e]) => { if (e.isIntersecting) { timeline.classList.add("visible"); tio.disconnect(); } }, { threshold: 0.6 });
+  tio.observe(timeline);
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -19,6 +45,8 @@ if ("IntersectionObserver" in window) {
     });
   }, { threshold: 0.12 });
   revealTargets.forEach((el) => { el.classList.add("reveal"); io.observe(el); });
+} else {
+  timeline.classList.add("visible");
 }
 
 // Formulario de contacto

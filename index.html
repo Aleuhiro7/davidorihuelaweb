@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>David Orihuela · Entrenador Personal Online</title>
-  <meta name="description" content="Entrenamiento personal online con David Orihuela. Planes de fuerza, pérdida de grasa y hábitos adaptados a ti, con seguimiento real.">
+  <meta name="description" content="Dale al play a tu salud. Entrenamiento personal online con David Orihuela: entrena hoy para vivir mejor mañana.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;500;600&display=swap">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
-  <meta name="theme-color" content="#0f1626">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"></noscript>
+  <meta name="theme-color" content="#07090f">
   <link rel="canonical" href="https://aleuhiro7.github.io/davidorihuelaweb/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_ES">
-  <meta property="og:title" content="David Orihuela · Entrenador Personal Online">
-  <meta property="og:description" content="Planes de fuerza, pérdida de grasa y hábitos a tu medida, con seguimiento semanal. Valoración inicial gratuita.">
+  <meta property="og:title" content="David Orihuela · Dale al play a tu salud">
+  <meta property="og:description" content="Entrena hoy para vivir mejor mañana. Entrenamiento personal online con seguimiento real. Valoración inicial gratuita.">
   <meta property="og:image" content="icon-512.png">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
   <link rel="icon" href="icon-192.png" sizes="192x192" type="image/png">
@@ -27,136 +27,165 @@
 </head>
 <body>
 
-  <header class="nav" id="top">
-    <div class="container nav__inner">
-      <a href="#top" class="logo" aria-label="David Orihuela, inicio">
-        <svg class="logo__mark" viewBox="0 0 100 110" aria-hidden="true"><defs><linearGradient id="dog1" x1="0.15" y1="0.1" x2="0.85" y2="0.95"><stop offset="0" stop-color="#4f7fe0"/><stop offset=".55" stop-color="#1fb0c8"/><stop offset="1" stop-color="#2dbf8a"/></linearGradient></defs><path d="M50 7 91.5 31v48L50 103 8.5 79V31Z" fill="#121826" stroke="url(#dog1)" stroke-width="9" stroke-linejoin="round"/><path fill="#d0d0d0" fill-rule="evenodd" d="M22 39.7h18l9.6 10.3v10.3L40 70.3H22ZM29.3 45v19.4l14-9.7Z M56 39.7h19l4.6 4.8v21L75 70.3H56l-5-4.8v-21ZM58.6 47v16h12.7V47Z"/></svg>
-        <span class="logo__text"><strong>DAVID ORIHUELA</strong><small>ENTRENADOR ONLINE</small></span>
+  <!-- Símbolos reutilizables: logo y triángulo de play -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="dog" x1="0.15" y1="0.1" x2="0.85" y2="0.95"><stop offset="0" stop-color="#4f7fe0"/><stop offset=".55" stop-color="#1fb0c8"/><stop offset="1" stop-color="#2dbf8a"/></linearGradient>
+      <symbol id="logo" viewBox="0 0 100 110"><path d="M50 7 91.5 31v48L50 103 8.5 79V31Z" fill="#121826" stroke="url(#dog)" stroke-width="9" stroke-linejoin="round"/><path fill="#d0d0d0" fill-rule="evenodd" d="M22 39.7h18l9.6 10.3v10.3L40 70.3H22ZM29.3 45v19.4l14-9.7Z M56 39.7h19l4.6 4.8v21L75 70.3H56l-5-4.8v-21ZM58.6 47v16h12.7V47Z"/></symbol>
+      <symbol id="tri" viewBox="0 0 10 12"><path d="M0 0v12l10-6Z" fill="currentColor"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="bar" id="top">
+    <div class="wrap bar__inner">
+      <a href="#top" class="brand" aria-label="David Orihuela, inicio">
+        <svg class="brand__mark"><use href="#logo"/></svg>
+        <span class="brand__name">David Orihuela<small>Entrenador online</small></span>
       </a>
-      <nav class="nav__links">
-        <a href="#filosofia">Filosofía</a>
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#metodo">Método</a>
-        <a href="#planes">Planes</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-      <a href="#contacto" class="btn btn--small">Empieza ya</a>
+      <div class="bar__right">
+        <span class="rec mono" aria-hidden="true"><i></i><b class="js-timer">00:00</b></span>
+        <a href="#contacto" class="btn btn--sm">Reserva</a>
+      </div>
     </div>
+    <div class="scrub" aria-hidden="true"><span class="scrub__fill"></span></div>
   </header>
 
   <main>
+
     <!-- HERO -->
     <section class="hero">
-      <div class="container hero__inner">
-        <div class="hero__text">
-          <p class="eyebrow">Entrenador personal online</p>
-          <h1>Entrena con un plan hecho <em>para ti</em>, no para todos.</h1>
-          <p class="lead">Programas de fuerza, pérdida de grasa y hábitos diseñados a tu medida, con seguimiento semanal y ajustes reales. Estés donde estés.</p>
-          <div class="hero__cta">
-            <a href="#contacto" class="btn">Reserva tu valoración gratuita</a>
-            <a href="#planes" class="btn btn--ghost">Ver planes</a>
+      <div class="wrap">
+        <p class="mono kicker">Entrenador personal online <span>/</span> Sesión 001</p>
+        <h1 class="mega">
+          <span class="mega__line">Dale</span>
+          <span class="mega__line">al <svg class="mega__tri" aria-hidden="true"><use href="#tri"/></svg>play.</span>
+        </h1>
+
+        <div class="hero__grid">
+          <div class="hero__copy">
+            <p class="lead">Entrena hoy para vivir <em>mejor mañana</em>. Un entrenamiento hecho para ti, con seguimiento real, para que llegues fuerte, ágil e independiente a cada etapa de tu vida.</p>
+            <a href="#contacto" class="playcta">
+              <span class="playcta__circle"><svg><use href="#tri"/></svg></span>
+              <span class="playcta__text">Reserva tu valoración gratuita<small class="mono">20 min · sin compromiso</small></span>
+            </a>
           </div>
-          <ul class="hero__stats">
-            <li><strong>100%</strong><span>online, desde donde estés</span></li>
-            <li><strong>1:1</strong><span>seguimiento personal</span></li>
-            <li><strong>&lt;24h</strong><span>tiempo de respuesta</span></li>
-          </ul>
+
+          <a href="#contacto" class="player" aria-label="Reserva tu valoración gratuita">
+            <div class="player__screen">
+              <span class="player__tag mono">Tu foto aquí</span>
+              <span class="player__big"><svg><use href="#tri"/></svg></span>
+            </div>
+            <div class="player__controls mono">
+              <svg class="player__mini"><use href="#tri"/></svg>
+              <span class="js-timer">00:00</span>
+              <span class="player__track"><span class="player__head"></span></span>
+              <span>Tu mejor versión</span>
+            </div>
+          </a>
         </div>
-        <div class="hero__media" aria-hidden="true">
-          <div class="photo photo--hero">
-            <span>Tu foto aquí</span>
-          </div>
-          <div class="badge-float">
-            <strong>Valoración inicial</strong>
-            <span>Gratis · 20 min</span>
-          </div>
-        </div>
+
+        <p class="mono counter">Llevas <b class="js-timer">00:00</b> aquí. Imagina lo que pueden hacer 45 minutos al día por ti.</p>
       </div>
     </section>
 
+    <!-- CINTA -->
+    <div class="tape" aria-hidden="true">
+      <div class="tape__track">
+        <span>Fuerza</span><i></i><span>Movilidad</span><i></i><span>Independencia</span><i></i><span>Calidad de vida</span><i></i>
+        <span>Fuerza</span><i></i><span>Movilidad</span><i></i><span>Independencia</span><i></i><span>Calidad de vida</span><i></i>
+      </div>
+    </div>
+
     <!-- FILOSOFÍA -->
-    <section class="section section--alt" id="filosofia">
-      <div class="container split split--top">
-        <div>
-          <p class="eyebrow">Nuestra filosofía</p>
-          <h2>Entrena hoy para vivir <span class="grad">mejor mañana.</span></h2>
+    <section class="block" id="filosofia">
+      <div class="wrap">
+        <p class="mono chapter"><span>01</span> Nuestra filosofía</p>
+        <h2 class="statement">Entrena <mark>hoy</mark> para vivir mejor <mark>mañana.</mark></h2>
+
+        <div class="timeline" aria-hidden="true">
+          <span class="mono">Hoy</span>
+          <span class="timeline__line"><span class="timeline__fill"></span></span>
+          <span class="mono">Mañana</span>
         </div>
-        <div class="prose">
+
+        <div class="cols">
           <p>El verdadero objetivo del entrenamiento no es únicamente mejorar tu aspecto físico, sino ayudarte a mantener tu fuerza, movilidad, independencia y calidad de vida con el paso de los años.</p>
           <p>Porque envejecer es inevitable, pero cómo llegamos a esa etapa depende, en parte, de los hábitos que construimos hoy.</p>
-          <p class="tagline">Tu futuro empieza con lo que haces hoy.</p>
         </div>
+        <p class="tagline">Tu futuro empieza con lo que haces hoy.</p>
       </div>
     </section>
 
     <!-- SOBRE MÍ -->
-    <section class="section" id="sobre-mi">
-      <div class="container split">
-        <div class="photo photo--about"><span>Foto entrenando</span></div>
+    <section class="block block--panel" id="sobre-mi">
+      <div class="wrap about">
+        <div class="about__photo"><span class="mono">Foto entrenando</span></div>
         <div>
-          <p class="eyebrow">Sobre mí</p>
-          <h2>Hola, soy David.</h2>
-          <p>Llevo años ayudando a personas con poco tiempo a ponerse en forma sin dietas imposibles ni rutinas copiadas de internet. Mi enfoque es sencillo: entrenamiento basado en evidencia, adaptado a tu vida, y un acompañamiento cercano para que no abandones.</p>
-          <ul class="checks">
-            <li>Graduado en Ciencias de la Actividad Física y del Deporte</li>
-            <li>Especialista en fuerza y recomposición corporal</li>
-            <li>Experiencia con principiantes, deportistas y mayores de 40</li>
-          </ul>
+          <p class="mono chapter"><span>02</span> Quién te entrena</p>
+          <h2 class="title">Hola, soy David.</h2>
+          <p class="about__intro">Ayudo a personas con poco tiempo a ponerse en forma sin dietas imposibles ni rutinas copiadas de internet. Entrenamiento basado en evidencia, adaptado a tu vida, y un acompañamiento cercano para que no abandones.</p>
+          <dl class="spec">
+            <div><dt class="mono">Formación</dt><dd>Graduado en Ciencias de la Actividad Física y del Deporte</dd></div>
+            <div><dt class="mono">Especialidad</dt><dd>Fuerza y recomposición corporal</dd></div>
+            <div><dt class="mono">Trabajo con</dt><dd>Principiantes, deportistas y mayores de 40</dd></div>
+            <div><dt class="mono">Modalidad</dt><dd>100% online, estés donde estés</dd></div>
+          </dl>
         </div>
       </div>
     </section>
 
     <!-- MÉTODO -->
-    <section class="section section--dark" id="metodo">
-      <div class="container">
-        <div class="split split--top">
-          <div>
-            <p class="eyebrow">El método</p>
-            <h2>Un método,<br><span class="grad">cuatro pilares.</span></h2>
-          </div>
-          <div class="prose">
-            <p>Entrenar no es solo mejorar tu físico. Es invertir en tu salud, desarrollar tus capacidades y construir hábitos que te permitan disfrutar de una mejor calidad de vida a largo plazo.</p>
-            <p>Un método basado en la evidencia científica, adaptado a ti y diseñado para acompañarte en cada etapa de tu progreso.</p>
-          </div>
+    <section class="block" id="metodo">
+      <div class="wrap method">
+        <div class="method__head">
+          <p class="mono chapter"><span>03</span> El método</p>
+          <h2 class="title">Un método,<br><mark>cuatro pilares.</mark></h2>
+          <p>Entrenar no es solo mejorar tu físico. Es invertir en tu salud, desarrollar tus capacidades y construir hábitos que te permitan disfrutar de una mejor calidad de vida a largo plazo.</p>
+          <p>Un método basado en la evidencia científica, adaptado a ti y diseñado para acompañarte en cada etapa de tu progreso.</p>
         </div>
-        <ol class="steps">
+        <ol class="pillars">
           <li>
-            <span class="steps__num">01</span>
-            <h3>Evaluación</h3>
-            <p>Conocemos tu punto de partida, tus objetivos, tus capacidades y tu estilo de vida. Esta información nos permite diseñar un programa que se adapte a tus necesidades reales.</p>
+            <span class="pillars__num">01</span>
+            <div><h3>Evaluación</h3><p>Conocemos tu punto de partida, tus objetivos, tus capacidades y tu estilo de vida. Esta información nos permite diseñar un programa que se adapte a tus necesidades reales.</p></div>
           </li>
           <li>
-            <span class="steps__num">02</span>
-            <h3>Entrenamiento</h3>
-            <p>Diseñamos un programa de entrenamiento adaptado a ti, con una progresión individualizada que respeta tu ritmo, tus capacidades y tus objetivos.</p>
+            <span class="pillars__num">02</span>
+            <div><h3>Entrenamiento</h3><p>Diseñamos un programa de entrenamiento adaptado a ti, con una progresión individualizada que respeta tu ritmo, tus capacidades y tus objetivos.</p></div>
           </li>
           <li>
-            <span class="steps__num">03</span>
-            <h3>Educación</h3>
-            <p>Te ayudamos a comprender el entrenamiento y la importancia de mantener hábitos saludables. Queremos que aprendas a cuidarte y adquieras autonomía para tomar decisiones que favorezcan tu bienestar.</p>
+            <span class="pillars__num">03</span>
+            <div><h3>Educación</h3><p>Te ayudamos a comprender el entrenamiento y la importancia de mantener hábitos saludables. Queremos que aprendas a cuidarte y adquieras autonomía para tomar decisiones que favorezcan tu bienestar.</p></div>
           </li>
           <li>
-            <span class="steps__num">04</span>
-            <h3>Seguimiento</h3>
-            <p>Evaluamos tu evolución, ajustamos el entrenamiento cuando es necesario y te acompañamos durante el proceso para conseguir mejoras sostenibles a largo plazo.</p>
+            <span class="pillars__num">04</span>
+            <div><h3>Seguimiento</h3><p>Evaluamos tu evolución, ajustamos el entrenamiento cuando es necesario y te acompañamos durante el proceso para conseguir mejoras sostenibles a largo plazo.</p></div>
           </li>
         </ol>
-        <div class="callout">
-          <h3>Tu salud no es una meta.<br><span class="grad">Es un compromiso contigo mismo.</span></h3>
+      </div>
+    </section>
+
+    <!-- COMPROMISO -->
+    <section class="band">
+      <div class="wrap band__inner">
+        <h2>Tu salud no es una meta.<br>Es un compromiso contigo mismo.</h2>
+        <div>
           <p>No importa desde dónde empieces. Lo importante es construir un estilo de vida activo que puedas mantener.</p>
-          <a href="#contacto" class="btn">Empieza hoy</a>
+          <a href="#contacto" class="btn btn--dark"><svg class="btn__tri"><use href="#tri"/></svg>Empieza hoy</a>
         </div>
       </div>
     </section>
 
     <!-- PLANES -->
-    <section class="section" id="planes">
-      <div class="container">
-        <p class="eyebrow">Planes</p>
-        <h2>Elige cómo quieres entrenar</h2>
-        <p class="section__intro">Cada plan se adapta a ti. Te cuento precios y detalles en la valoración gratuita.</p>
+    <section class="block" id="planes">
+      <div class="wrap">
+        <p class="mono chapter"><span>04</span> Elige tu nivel</p>
+        <div class="plans__head">
+          <h2 class="title">Tres formas<br>de darle al play.</h2>
+          <p>Cada plan se adapta a ti. Te cuento precios y detalles en la valoración gratuita.</p>
+        </div>
         <div class="plans">
           <article class="plan">
+            <div class="plan__lvl" aria-label="Nivel 1 de 3"><i class="on"></i><i></i><i></i></div>
             <h3>Básico</h3>
             <ul>
               <li>Plan de entrenamiento personalizado</li>
@@ -164,10 +193,11 @@
               <li>Revisión mensual</li>
               <li>Soporte por email</li>
             </ul>
-            <a href="#contacto" class="btn btn--ghost" data-plan="Básico">Me interesa</a>
+            <a href="#contacto" class="plan__cta" data-plan="Básico">Me interesa <span>→</span></a>
           </article>
-          <article class="plan plan--featured">
-            <span class="plan__tag">Recomendado</span>
+          <article class="plan plan--hot">
+            <span class="plan__tag mono">Recomendado</span>
+            <div class="plan__lvl" aria-label="Nivel 2 de 3"><i class="on"></i><i class="on"></i><i></i></div>
             <h3>Completo</h3>
             <ul>
               <li>Todo lo del plan Básico</li>
@@ -176,9 +206,10 @@
               <li>Chat directo por WhatsApp</li>
               <li>Corrección de técnica por vídeo</li>
             </ul>
-            <a href="#contacto" class="btn" data-plan="Completo">Me interesa</a>
+            <a href="#contacto" class="plan__cta" data-plan="Completo">Me interesa <span>→</span></a>
           </article>
           <article class="plan">
+            <div class="plan__lvl" aria-label="Nivel 3 de 3"><i class="on"></i><i class="on"></i><i class="on"></i></div>
             <h3>Premium</h3>
             <ul>
               <li>Todo lo del plan Completo</li>
@@ -186,59 +217,47 @@
               <li>Plan nutricional detallado</li>
               <li>Respuesta prioritaria</li>
             </ul>
-            <a href="#contacto" class="btn btn--ghost" data-plan="Premium">Me interesa</a>
+            <a href="#contacto" class="plan__cta" data-plan="Premium">Me interesa <span>→</span></a>
           </article>
         </div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section" id="faq">
-      <div class="container container--narrow">
-        <p class="eyebrow">Preguntas frecuentes</p>
-        <h2>Resolvemos tus dudas</h2>
-        <div class="faq">
-        <div class="faq__item">
-          <h3>¿Necesito ir a un gimnasio?</h3>
-          <p>No. Diseño el plan según el material que tengas: gimnasio, casa con mancuernas o solo tu peso corporal.</p>
-        </div>
-        <div class="faq__item">
-          <h3>¿Sirve si nunca he entrenado?</h3>
-          <p>Sí. Empezamos desde tu nivel actual y progresamos de forma segura, con vídeos y correcciones de técnica.</p>
-        </div>
-        <div class="faq__item">
-          <h3>¿Hay permanencia?</h3>
-          <p>No hay permanencia. Puedes cancelar cuando quieras avisando antes de la siguiente renovación.</p>
-        </div>
-        <div class="faq__item">
-          <h3>¿Cómo es la valoración gratuita?</h3>
-          <p>Una videollamada de unos 20 minutos para conocerte, entender tu objetivo y ver si encajamos. Sin compromiso.</p>
-        </div>
+    <section class="block block--panel" id="faq">
+      <div class="wrap">
+        <p class="mono chapter"><span>05</span> Dudas</p>
+        <h2 class="title">Antes de empezar.</h2>
+        <div class="qa">
+          <div><h3>¿Necesito ir a un gimnasio?</h3><p>No. Diseño el plan según el material que tengas: gimnasio, casa con mancuernas o solo tu peso corporal.</p></div>
+          <div><h3>¿Sirve si nunca he entrenado?</h3><p>Sí. Empezamos desde tu nivel actual y progresamos de forma segura, con vídeos y correcciones de técnica.</p></div>
+          <div><h3>¿Hay permanencia?</h3><p>No hay permanencia. Puedes cancelar cuando quieras avisando antes de la siguiente renovación.</p></div>
+          <div><h3>¿Cómo es la valoración gratuita?</h3><p>Una videollamada de unos 20 minutos para conocerte, entender tu objetivo y ver si encajamos. Sin compromiso.</p></div>
         </div>
       </div>
     </section>
 
     <!-- CONTACTO -->
-    <section class="section section--dark" id="contacto">
-      <div class="container split split--top">
+    <section class="block" id="contacto">
+      <div class="wrap contact">
         <div>
-          <p class="eyebrow">Contacto</p>
-          <h2>Da el primer paso hoy</h2>
+          <p class="mono chapter"><span>06</span> Empieza</p>
+          <h2 class="mega mega--sm">Pulsa<br><mark>play.</mark></h2>
           <p>Rellena el formulario y te escribo en menos de 24 horas para agendar tu valoración gratuita.</p>
-          <ul class="contact-list">
-            <li><span>Email</span><a href="mailto:hola@davidorihuela.com">hola@davidorihuela.com</a></li>
-            <li><span>WhatsApp</span><a href="https://wa.me/34600000000" target="_blank" rel="noopener">+34 600 000 000</a></li>
-            <li><span>Instagram</span><a href="https://instagram.com/" target="_blank" rel="noopener">@davidorihuela</a></li>
+          <ul class="links">
+            <li><span class="mono">Email</span><a href="mailto:hola@davidorihuela.com">hola@davidorihuela.com</a></li>
+            <li><span class="mono">WhatsApp</span><a href="https://wa.me/34600000000" target="_blank" rel="noopener">+34 600 000 000</a></li>
+            <li><span class="mono">Instagram</span><a href="https://instagram.com/" target="_blank" rel="noopener">@davidorihuela</a></li>
           </ul>
         </div>
         <form class="form" id="contact-form" novalidate>
-          <label>Nombre
+          <label><span class="mono">Nombre</span>
             <input type="text" name="nombre" required autocomplete="name">
           </label>
-          <label>Email
+          <label><span class="mono">Email</span>
             <input type="email" name="email" required autocomplete="email">
           </label>
-          <label>Objetivo principal
+          <label><span class="mono">Objetivo principal</span>
             <select name="objetivo">
               <option>Perder grasa</option>
               <option>Ganar fuerza / músculo</option>
@@ -246,7 +265,7 @@
               <option>Rendimiento deportivo</option>
             </select>
           </label>
-          <label>Plan que te interesa
+          <label><span class="mono">Plan que te interesa</span>
             <select name="plan" id="plan-select">
               <option>Aún no lo sé</option>
               <option>Básico</option>
@@ -254,23 +273,20 @@
               <option>Premium</option>
             </select>
           </label>
-          <label>Cuéntame un poco sobre ti
+          <label><span class="mono">Cuéntame un poco sobre ti</span>
             <textarea name="mensaje" rows="4"></textarea>
           </label>
-          <button type="submit" class="btn btn--full">Enviar solicitud</button>
+          <button type="submit" class="btn btn--full"><svg class="btn__tri"><use href="#tri"/></svg>Enviar solicitud</button>
           <p class="form__msg" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer__inner">
-      <a href="#top" class="logo" aria-label="David Orihuela, inicio">
-        <svg class="logo__mark" viewBox="0 0 100 110" aria-hidden="true"><defs><linearGradient id="dog2" x1="0.15" y1="0.1" x2="0.85" y2="0.95"><stop offset="0" stop-color="#4f7fe0"/><stop offset=".55" stop-color="#1fb0c8"/><stop offset="1" stop-color="#2dbf8a"/></linearGradient></defs><path d="M50 7 91.5 31v48L50 103 8.5 79V31Z" fill="#121826" stroke="url(#dog2)" stroke-width="9" stroke-linejoin="round"/><path fill="#d0d0d0" fill-rule="evenodd" d="M22 39.7h18l9.6 10.3v10.3L40 70.3H22ZM29.3 45v19.4l14-9.7Z M56 39.7h19l4.6 4.8v21L75 70.3H56l-5-4.8v-21ZM58.6 47v16h12.7V47Z"/></svg>
-        <span class="logo__text"><strong>DAVID ORIHUELA</strong><small>ENTRENADOR ONLINE</small></span>
-      </a>
-      <p>© <span id="year"></span> David Orihuela · Entrenador personal online</p>
+  <footer class="foot">
+    <div class="wrap foot__inner">
+      <a href="#top" class="brand"><svg class="brand__mark"><use href="#logo"/></svg><span class="brand__name">David Orihuela<small>Entrenador online</small></span></a>
+      <p class="mono">© <span id="year"></span> · Entrena hoy, vive mejor mañana.</p>
     </div>
   </footer>
 
