@@ -14,7 +14,7 @@ setInterval(tick, 1000);
 // Carrusel de fotos del reproductor: pasan solas
 const slides = document.querySelectorAll(".slide");
 const bars = document.querySelectorAll(".player__track i");
-const SLIDE_TIME = 5000;
+const SLIDE_TIME = 2000;
 let current = 0;
 document.documentElement.style.setProperty("--slide-time", SLIDE_TIME + "ms");
 const showSlide = (n) => {
