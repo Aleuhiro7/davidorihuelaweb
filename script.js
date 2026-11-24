@@ -42,7 +42,7 @@ if ("IntersectionObserver" in window) {
 }
 
 // WhatsApp: cambia aquí tu número (con prefijo de país, sin + ni espacios)
-const WHATSAPP = "34600000000";
+const WHATSAPP = "34696635094";
 const waLink = (text) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
 
 // Botones de reserva: abren el formulario emergente
