@@ -11,6 +11,17 @@ const tick = () => {
 };
 setInterval(tick, 1000);
 
+// Carrusel: al entrar, la primera foto aparece centrada
+const screen = document.querySelector(".player__screen");
+const firstSlide = document.querySelector(".slide");
+const centerCarousel = () => {
+  if (!screen || !firstSlide) return;
+  const px = (screen.clientWidth - firstSlide.getBoundingClientRect().width) / 2;
+  document.querySelector(".player").style.setProperty("--center", px + "px");
+};
+centerCarousel();
+addEventListener("resize", centerCarousel);
+
 // Barra de progreso tipo reproductor según el scroll
 const fill = document.querySelector(".scrub__fill");
 let ticking = false;
