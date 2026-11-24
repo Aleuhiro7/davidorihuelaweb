@@ -41,9 +41,9 @@ if ("IntersectionObserver" in window) {
   timeline.classList.add("visible");
 }
 
-// WhatsApp: cambia aquí tu número (con prefijo de país, sin + ni espacios)
-const WHATSAPP = "34600000000";
-const waLink = (text) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+// Las solicitudes se envían a un servicio propio (netlify/functions/solicitud.js),
+// que te las reenvía a tu WhatsApp. Tu número nunca aparece en la web.
+const ENDPOINT = "/api/solicitud";
 
 // Botones de reserva: abren el formulario emergente
 const dialog = document.getElementById("booking");
@@ -61,10 +61,11 @@ if (dialog) {
   dialog.addEventListener("click", (e) => { if (e.target === dialog) dialog.close(); }); // clic fuera
 }
 
-// Formularios: preparan el mensaje y lo abren en WhatsApp
+// Formularios: envían la solicitud y te llega a tu WhatsApp
 document.querySelectorAll(".js-booking").forEach((form) => {
   const msg = form.querySelector(".form__msg");
-  form.addEventListener("submit", (e) => {
+  const btn = form.querySelector("button[type=submit]");
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     msg.className = "form__msg";
     const nameOk = form.nombre.value.trim() !== "";
@@ -76,11 +77,23 @@ document.querySelectorAll(".js-booking").forEach((form) => {
       msg.classList.add("err");
       return;
     }
-    const data = Object.fromEntries(new FormData(form));
-    let text = `Hola David, soy ${data.nombre.trim()}. Me gustaría hacer la valoración gratuita.\nObjetivo: ${data.objetivo}\nTeléfono: ${data.telefono.trim()}`;
-    if (data.mensaje.trim()) text += `\n\n${data.mensaje.trim()}`;
-    window.open(waLink(text), "_blank", "noopener");
-    msg.textContent = "Abriendo WhatsApp con tu mensaje…";
-    msg.classList.add("ok");
+    btn.disabled = true;
+    msg.textContent = "Enviando…";
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+      });
+      if (!res.ok) throw new Error();
+      form.reset();
+      msg.textContent = "¡Recibido! Te escribo por WhatsApp en menos de 24 horas.";
+      msg.classList.add("ok");
+    } catch {
+      msg.textContent = "No se ha podido enviar. Inténtalo de nuevo en unos minutos.";
+      msg.classList.add("err");
+    } finally {
+      btn.disabled = false;
+    }
   });
 });
