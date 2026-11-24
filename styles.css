@@ -202,6 +202,19 @@ picture.about__photo { display: block; overflow: hidden; background: var(--panel
 .form__msg.ok { color: var(--accent); }
 .form__msg.err { color: #ff8a9a; }
 
+/* Formulario emergente */
+.booking { margin: auto; padding: 0; border: 0; background: transparent; color: var(--text); width: min(520px, 100% - 24px); max-height: calc(100dvh - 24px); overflow: auto; }
+.booking::backdrop { background: rgba(4,6,10,.78); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.booking[open] { animation: popin .25s ease-out; }
+@keyframes popin { from { opacity: 0; transform: translateY(16px) scale(.98); } }
+.booking .form { position: relative; border-color: var(--accent); gap: .95rem; }
+.booking .chapter { margin-bottom: 0; }
+.booking__title { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(2.4rem, 9vw, 3.2rem); line-height: 1; }
+.booking__intro { margin-top: -.4rem; }
+.booking__close { position: absolute; top: .75rem; right: .75rem; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--ink); color: var(--text); font-size: 1.5rem; line-height: 1; cursor: pointer; }
+.booking__close:hover { border-color: var(--accent); color: var(--accent); }
+body.no-scroll { overflow: hidden; }
+
 /* Pie */
 .foot { border-top: 1px solid var(--line); padding: 2rem 0; }
 .foot__inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }

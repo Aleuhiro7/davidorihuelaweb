@@ -45,29 +45,42 @@ if ("IntersectionObserver" in window) {
 const WHATSAPP = "34600000000";
 const waLink = (text) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
 
-// Botones de valoración: abren WhatsApp con un mensaje ya escrito
-document.querySelectorAll("[data-wa]").forEach((a) => {
-  a.href = waLink("Hola David, me gustaría hacer la valoración gratuita.");
-});
-
-// Formulario de contacto: prepara el mensaje y lo abre en WhatsApp
-const form = document.getElementById("contact-form");
-const msg = form.querySelector(".form__msg");
-
-form.addEventListener("submit", (e) => {
+// Botones de reserva: abren el formulario emergente
+const dialog = document.getElementById("booking");
+const openForm = (e) => {
+  if (!dialog || typeof dialog.showModal !== "function") return; // sin soporte: baja al formulario de contacto
   e.preventDefault();
-  msg.className = "form__msg";
-  const ok = form.nombre.value.trim() !== "";
-  form.nombre.classList.toggle("invalid", !ok);
-  if (!ok) {
-    msg.textContent = "Escribe tu nombre para continuar.";
-    msg.classList.add("err");
-    return;
-  }
-  const data = Object.fromEntries(new FormData(form));
-  let text = `Hola David, soy ${data.nombre.trim()}. Me gustaría hacer la valoración gratuita.\nObjetivo: ${data.objetivo}`;
-  if (data.mensaje.trim()) text += `\n\n${data.mensaje.trim()}`;
-  window.open(waLink(text), "_blank", "noopener");
-  msg.textContent = "Abriendo WhatsApp con tu mensaje…";
-  msg.classList.add("ok");
+  dialog.showModal();
+  document.body.classList.add("no-scroll");
+  setTimeout(() => dialog.querySelector("input[name=nombre]").focus(), 50);
+};
+document.querySelectorAll("[data-open-form]").forEach((a) => a.addEventListener("click", openForm));
+if (dialog) {
+  dialog.addEventListener("close", () => document.body.classList.remove("no-scroll"));
+  dialog.querySelector("[data-close-form]").addEventListener("click", () => dialog.close());
+  dialog.addEventListener("click", (e) => { if (e.target === dialog) dialog.close(); }); // clic fuera
+}
+
+// Formularios: preparan el mensaje y lo abren en WhatsApp
+document.querySelectorAll(".js-booking").forEach((form) => {
+  const msg = form.querySelector(".form__msg");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    msg.className = "form__msg";
+    const nameOk = form.nombre.value.trim() !== "";
+    const phoneOk = form.telefono.value.replace(/\D/g, "").length >= 9;
+    form.nombre.classList.toggle("invalid", !nameOk);
+    form.telefono.classList.toggle("invalid", !phoneOk);
+    if (!nameOk || !phoneOk) {
+      msg.textContent = !nameOk ? "Escribe tu nombre para continuar." : "Escribe un número de teléfono válido.";
+      msg.classList.add("err");
+      return;
+    }
+    const data = Object.fromEntries(new FormData(form));
+    let text = `Hola David, soy ${data.nombre.trim()}. Me gustaría hacer la valoración gratuita.\nObjetivo: ${data.objetivo}\nTeléfono: ${data.telefono.trim()}`;
+    if (data.mensaje.trim()) text += `\n\n${data.mensaje.trim()}`;
+    window.open(waLink(text), "_blank", "noopener");
+    msg.textContent = "Abriendo WhatsApp con tu mensaje…";
+    msg.classList.add("ok");
+  });
 });

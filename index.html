@@ -44,7 +44,7 @@
       </a>
       <div class="bar__right">
         <span class="rec mono" aria-hidden="true"><i></i><b class="js-timer">00:00</b></span>
-        <a href="#contacto" class="btn btn--sm">Reserva</a>
+        <a href="#contacto" class="btn btn--sm" data-open-form>Reserva</a>
       </div>
     </div>
     <div class="scrub" aria-hidden="true"><span class="scrub__fill"></span></div>
@@ -67,7 +67,7 @@
 
           <div class="hero__media">
             <p class="media__note"><span class="mono">Mi evolución</span>No hay mejor ejemplo que el progreso hecho en uno mismo.</p>
-            <a href="https://wa.me/34600000000" class="player" data-wa target="_blank" rel="noopener" aria-label="Reserva tu valoración gratuita por WhatsApp">
+            <a href="#contacto" class="player" data-open-form aria-label="Reserva tu valoración gratuita por WhatsApp">
               <div class="player__screen">
                 <div class="slides">
                 <div class="slides__track">
@@ -134,7 +134,7 @@
         </div>
 
         <p class="mono counter">Llevas <b class="js-timer">00:00</b> aquí. Imagina lo que puede hacer 1 hora al día por ti.</p>
-        <a href="https://wa.me/34600000000" class="playcta" data-wa target="_blank" rel="noopener">
+        <a href="#contacto" class="playcta" data-open-form>
           <span class="playcta__circle"><svg><use href="#tri"/></svg></span>
           <span class="playcta__text">Reserva tu valoración gratuita<small class="mono">Por WhatsApp · sin compromiso</small></span>
         </a>
@@ -226,7 +226,7 @@
         <h2>Tu salud no es una meta.<br>Es un compromiso contigo mismo.</h2>
         <div>
           <p>No importa desde dónde empieces. Lo importante es construir un estilo de vida activo que puedas mantener.</p>
-          <a href="#contacto" class="btn btn--dark"><svg class="btn__tri"><use href="#tri"/></svg>Empieza hoy</a>
+          <a href="#contacto" class="btn btn--dark" data-open-form><svg class="btn__tri"><use href="#tri"/></svg>Empieza hoy</a>
         </div>
       </div>
     </section>
@@ -249,7 +249,7 @@
             <li>Corrección de técnica por vídeo</li>
             <li>Ajustes del plan cuando lo necesites</li>
           </ul>
-          <a href="https://wa.me/34600000000" class="btn btn--full" data-wa target="_blank" rel="noopener"><svg class="btn__tri"><use href="#tri"/></svg>Reserva tu valoración por WhatsApp</a>
+          <a href="#contacto" class="btn btn--full" data-open-form><svg class="btn__tri"><use href="#tri"/></svg>Reserva tu valoración por WhatsApp</a>
         </div>
       </div>
     </section>
@@ -281,7 +281,7 @@
             <li><span class="mono">Instagram</span><a href="https://instagram.com/" target="_blank" rel="noopener">@davidorihuela</a></li>
           </ul>
         </div>
-        <form class="form" id="contact-form" novalidate>
+        <form class="form js-booking" id="contact-form" novalidate>
           <label><span class="mono">Nombre</span>
             <input type="text" name="nombre" required autocomplete="name">
           </label>
@@ -292,6 +292,9 @@
               <option>Mejorar salud y hábitos</option>
             </select>
           </label>
+          <label><span class="mono">Tu número de teléfono</span>
+            <input type="tel" name="telefono" required autocomplete="tel" inputmode="tel" placeholder="+34 600 000 000">
+          </label>
           <label><span class="mono">Cuéntame un poco sobre ti</span>
             <textarea name="mensaje" rows="4"></textarea>
           </label>
@@ -301,6 +304,34 @@
       </div>
     </section>
   </main>
+
+  <!-- Formulario emergente de reserva -->
+  <dialog class="booking" id="booking" aria-labelledby="booking-title">
+    <form class="form js-booking" novalidate>
+      <button type="button" class="booking__close" data-close-form aria-label="Cerrar">×</button>
+      <p class="mono chapter"><span>▶</span> Valoración gratuita</p>
+      <h2 class="booking__title" id="booking-title">Dale al <mark>play.</mark></h2>
+      <p class="booking__intro">Déjame tus datos y te escribo por WhatsApp en menos de 24 horas.</p>
+      <label><span class="mono">Nombre</span>
+        <input type="text" name="nombre" required autocomplete="name">
+      </label>
+      <label><span class="mono">Objetivo principal</span>
+        <select name="objetivo">
+          <option>Perder grasa</option>
+          <option>Ganar fuerza / músculo</option>
+          <option>Mejorar salud y hábitos</option>
+        </select>
+      </label>
+      <label><span class="mono">Tu número de teléfono</span>
+        <input type="tel" name="telefono" required autocomplete="tel" inputmode="tel" placeholder="+34 600 000 000">
+      </label>
+      <label><span class="mono">Cuéntame un poco sobre ti</span>
+        <textarea name="mensaje" rows="4"></textarea>
+      </label>
+      <button type="submit" class="btn btn--full"><svg class="btn__tri"><use href="#tri"/></svg>Enviar por WhatsApp</button>
+      <p class="form__msg" role="status" aria-live="polite"></p>
+    </form>
+  </dialog>
 
   <footer class="foot">
     <div class="wrap foot__inner">
