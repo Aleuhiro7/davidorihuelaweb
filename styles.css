@@ -84,11 +84,10 @@ body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-i
 .player__screen { aspect-ratio: 16 / 11; position: relative; display: grid; place-items: center;
   background: radial-gradient(circle at 75% 80%, rgba(62,230,176,.16), transparent 55%), repeating-linear-gradient(135deg, #0f1522 0 14px, #111827 14px 28px); }
 .slides { position: absolute; inset: 0; overflow: hidden; }
-.slides__track { display: flex; gap: 6px; height: 100%; width: max-content; margin-left: var(--center); transform: translateX(calc(-33.333% - 2px)); animation: filmstrip var(--loop) linear infinite; }
-.slide { flex: none; height: 100%; aspect-ratio: 530 / 1000; }
-.slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
-@keyframes filmstrip { from { transform: translateX(calc(-33.333% - 2px)); } to { transform: translateX(calc(-66.666% - 4px)); } }
-.player { --loop: 21s; --center: 31.78%; }
+.strip { position: absolute; top: 0; bottom: 0; left: 0; width: 400%; will-change: transform;
+  background: url("evolucion.jpg") 0 0 / auto 100% repeat-x;
+  background-image: image-set(url("evolucion.webp") type("image/webp"), url("evolucion.jpg") type("image/jpeg")); background-size: auto 100%; background-repeat: repeat-x; }
+.player { --loop: 21s; }
 .player__tag { position: absolute; left: 14px; top: 14px; color: var(--muted); border: 1px solid var(--line); padding: .25rem .55rem; border-radius: 6px; background: rgba(7,9,15,.6); }
 .player__big { position: absolute; right: 16px; bottom: 16px; width: 60px; height: 60px; backdrop-filter: blur(4px); border-radius: 50%; background: rgba(7,9,15,.55); border: 2px solid var(--text); display: grid; place-items: center; transition: background .2s, border-color .2s; }
 .player__big svg { width: 18px; height: 22px; margin-left: 4px; color: var(--text); }
@@ -227,7 +226,7 @@ body.no-scroll { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .tape__track, .rec i, .playcta__circle::before, .slides__track, .player__track i::after { animation: none; }
+  .tape__track, .rec i, .playcta__circle::before, .player__track i::after { animation: none; }
   .timeline__fill { transition: none; }
 }
 
@@ -244,7 +243,6 @@ body.no-scroll { overflow: hidden; }
   .lead { font-size: .98rem; line-height: 1.5; }
   .media__note { font-size: .84rem; line-height: 1.4; margin-bottom: .55rem; gap: .2rem .6rem; }
   .player__screen { aspect-ratio: 16 / 10; }
-  .player { --center: 33.44%; }
   .player__controls { padding: .55rem .9rem; }
 }
 @media (max-width: 640px) {

@@ -11,18 +11,36 @@ const tick = () => {
 };
 setInterval(tick, 1000);
 
-// Carrusel: al entrar, la primera foto aparece centrada
+// Carrusel infinito: una tira con las 6 fotos que se repite sin fin
 const screen = document.querySelector(".player__screen");
-const firstSlide = document.querySelector(".slide");
-const centerCarousel = () => {
-  if (!screen || !firstSlide) return;
-  const slideW = firstSlide.getBoundingClientRect().width;
-  // En pantallas anchas caben varias fotos: la primera empieza a la izquierda, en orden
-  const px = screen.clientWidth > slideW * 3 ? 0 : (screen.clientWidth - slideW) / 2;
-  document.querySelector(".player").style.setProperty("--center", px + "px");
+const strip = document.querySelector(".strip");
+const STRIP_RATIO = 3252 / 1000; // ancho / alto de la tira (6 fotos + separaciones)
+const PHOTO_RATIO = 530 / 1000;  // ancho / alto de cada foto
+const LOOP_MS = 21000;           // 6 fotos x 3,5 s
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let stripAnim;
+const setupStrip = () => {
+  if (!screen || !strip) return;
+  const W = screen.clientWidth, H = screen.clientHeight;
+  const S = H * STRIP_RATIO, photoW = H * PHOTO_RATIO;
+  // En móvil la primera foto empieza centrada; en pantallas anchas, a la izquierda
+  const start = W > photoW * 4 ? 0 : (W - photoW) / 2;
+  strip.style.width = 3 * S + W + "px";
+  const from = start - S, to = start - 2 * S;
+  if (reduceMotion) { strip.style.transform = `translateX(${from}px)`; return; }
+  const t = stripAnim ? stripAnim.currentTime : 0;
+  if (stripAnim) stripAnim.cancel();
+  stripAnim = strip.animate(
+    [{ transform: `translateX(${from}px)` }, { transform: `translateX(${to}px)` }],
+    { duration: LOOP_MS, iterations: Infinity }
+  );
+  stripAnim.currentTime = t;
+  // Las barras de abajo, sincronizadas con las fotos
+  document.getAnimations().forEach((a) => { if (/^bar\d/.test(a.animationName || "")) a.currentTime = t; });
 };
-centerCarousel();
-addEventListener("resize", centerCarousel);
+setupStrip();
+let resizeTimer;
+addEventListener("resize", () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(setupStrip, 150); });
 
 // Barra de progreso tipo reproductor según el scroll
 const fill = document.querySelector(".scrub__fill");
