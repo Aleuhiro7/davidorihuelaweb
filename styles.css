@@ -260,3 +260,82 @@ body.no-scroll { overflow: hidden; }
   .lead { font-size: .93rem; }
   .hero .mega { margin-bottom: .6rem; }
 }
+
+/* =========================================================
+   Tablet y ordenador: reparto propio (tipo "panel" o bento)
+   ========================================================= */
+@media (min-width: 701px) {
+  /* Ficha de "Sobre mí" en tarjetas */
+  .spec { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; border-top: 0; }
+  .spec div { display: block; padding: 1.1rem 1.2rem; border: 1px solid var(--line); border-radius: 14px; background: var(--card); }
+  .spec dt { margin-bottom: .45rem; }
+  /* Pilares del método en tarjetas 2x2 */
+  .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .pillars li, .pillars li:last-child { display: block; padding: 1.6rem; border: 1px solid var(--line); border-radius: 18px; background: var(--card); transition: opacity .7s ease, border-color .3s, transform .3s; }
+  .pillars li:hover { border-color: var(--accent); transform: translateY(-4px); }
+  .pillars__num { display: block; margin-bottom: 1rem; }
+  /* Lista del plan a dos columnas */
+  .offer__list { grid-template-columns: 1fr 1fr; column-gap: 2rem; }
+  /* Preguntas en tarjetas */
+  .qa { gap: 1rem; }
+  .qa > div { padding: 1.5rem; border: 1px solid var(--line); border-radius: 18px; background: var(--card); }
+}
+
+@media (min-width: 901px) {
+  /* ---- Portada: titular arriba y la evolución a todo lo ancho ---- */
+  .hero { padding: clamp(1.5rem, 3vw, 2.5rem) 0 2.5rem; }
+  .hero .wrap { display: grid; grid-template-columns: 1.25fr 1fr; grid-template-areas: "kicker kicker" "title lead" "media media" "counter cta"; column-gap: clamp(2rem, 5vw, 5rem); align-items: end; }
+  .hero__grid, .hero__copy { display: contents; }
+  .hero .kicker { grid-area: kicker; }
+  .hero .mega { grid-area: title; font-size: clamp(4rem, 7.4vw, 7.8rem); margin: .4rem 0 0; white-space: nowrap; }
+  .hero .mega__line { display: inline; }
+  .hero .lead { grid-area: lead; font-size: clamp(1.05rem, 1.35vw, 1.25rem); padding-bottom: .5rem; }
+  .hero__media { grid-area: media; margin-top: clamp(1.5rem, 3vw, 2.25rem); }
+  .media__note { font-size: 1rem; }
+  .player, .player:hover { transform: none; }
+  .player__screen { aspect-ratio: auto; height: clamp(260px, 44vh, 460px); }
+  .hero .counter { grid-area: counter; margin-top: 1.5rem; padding-top: 1rem; align-self: center; }
+  .hero .playcta { grid-area: cta; justify-self: end; margin-top: 1.5rem; }
+
+  /* ---- Filosofía: frase grande a la izquierda, ideas en tarjetas a la derecha ---- */
+  #filosofia .wrap { display: grid; grid-template-columns: 1.15fr 1fr; grid-template-areas: "chapter chapter" "statement timeline" "statement cols" "statement tagline"; column-gap: clamp(2rem, 5vw, 4.5rem); row-gap: 1rem; align-items: start; }
+  #filosofia .chapter { grid-area: chapter; }
+  #filosofia .statement { grid-area: statement; align-self: center; font-size: clamp(3.5rem, 6.8vw, 6.8rem); }
+  #filosofia .timeline { grid-area: timeline; margin: 0 0 .5rem; }
+  #filosofia .cols { grid-area: cols; grid-template-columns: 1fr; gap: 1rem; }
+  #filosofia .cols p { padding: 1.4rem 1.5rem; border: 1px solid var(--line); border-radius: 18px; background: var(--card); font-size: 1.02rem; }
+  #filosofia .tagline { grid-area: tagline; margin: 0; padding: 1.4rem 1.5rem; border-radius: 18px; background: var(--accent); color: var(--accent-ink); font-size: clamp(1.5rem, 2.2vw, 2rem); }
+
+  /* ---- Sobre mí: foto y presentación arriba, ficha en 4 tarjetas debajo ---- */
+  .about { grid-template-rows: auto auto 1fr auto; grid-template-columns: 1fr 1.05fr; grid-template-areas: "photo chapter" "photo title" "photo intro" "spec spec"; column-gap: clamp(2rem, 5vw, 4.5rem); row-gap: 0; align-items: start; }
+  .about > div { display: contents; }
+  .about__photo { grid-area: photo; align-self: stretch; aspect-ratio: auto; min-height: 360px; }
+  .about .chapter { grid-area: chapter; align-self: end; }
+  .about .title { grid-area: title; }
+  .about__intro { grid-area: intro; font-size: 1.12rem; align-self: start; }
+  .about .chapter { margin-top: 1rem; }
+  .spec { grid-area: spec; grid-template-columns: repeat(4, 1fr); margin-top: 2rem; }
+
+  /* ---- Método: cabecera en dos columnas y los 4 pilares en fila ---- */
+  .method { grid-template-columns: 1fr; gap: 2.5rem; }
+  .method__head { position: static; grid-template-columns: 1fr 1fr; grid-template-areas: "chapter ." "title p1" "title p2"; column-gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+  .method__head > :nth-child(1) { grid-area: chapter; }
+  .method__head > :nth-child(2) { grid-area: title; }
+  .method__head > :nth-child(3) { grid-area: p1; }
+  .method__head > :nth-child(4) { grid-area: p2; }
+  .pillars { grid-template-columns: repeat(4, 1fr); }
+  .pillars p { font-size: .96rem; }
+
+  /* ---- Plan: cabecera ancha y lista en dos columnas ---- */
+  .offer { grid-template-columns: 1fr; gap: 2.5rem; }
+  .offer__head { grid-template-columns: 1fr 1fr; grid-template-areas: "chapter ." "title text"; column-gap: clamp(2rem, 5vw, 4.5rem); align-items: end; }
+  .offer__head > :nth-child(1) { grid-area: chapter; }
+  .offer__head > :nth-child(2) { grid-area: title; margin: 0; }
+  .offer__head > :nth-child(3) { grid-area: text; }
+  .offer__card { padding: clamp(2rem, 3.5vw, 3rem); }
+  .offer__list { column-gap: 3rem; }
+  .offer__card .btn { width: auto; min-width: 340px; }
+
+  /* ---- Dudas en cuatro tarjetas ---- */
+  .qa { grid-template-columns: repeat(4, 1fr); }
+}

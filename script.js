@@ -16,7 +16,9 @@ const screen = document.querySelector(".player__screen");
 const firstSlide = document.querySelector(".slide");
 const centerCarousel = () => {
   if (!screen || !firstSlide) return;
-  const px = (screen.clientWidth - firstSlide.getBoundingClientRect().width) / 2;
+  const slideW = firstSlide.getBoundingClientRect().width;
+  // En pantallas anchas caben varias fotos: la primera empieza a la izquierda, en orden
+  const px = screen.clientWidth > slideW * 3 ? 0 : (screen.clientWidth - slideW) / 2;
   document.querySelector(".player").style.setProperty("--center", px + "px");
 };
 centerCarousel();
